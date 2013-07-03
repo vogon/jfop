@@ -33,4 +33,15 @@ class JFOP < Sinatra::Base
 			200
 		end
 	end
+
+	post '/submit-twilio' do
+		if params['magicword'] != ENV['JFOP_MAGIC_WORD'] then
+			403
+		else
+			# LAST_PIZZA = PizzaData.new(time: DateTime.now, msg: params['msg'])
+			# LAST_PIZZA.dump(LAST_PIZZA_FILENAME)
+
+			slim :twiml
+		end
+	end
 end
