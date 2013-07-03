@@ -41,7 +41,7 @@ class JFOP < Sinatra::Base
 			# LAST_PIZZA = PizzaData.new(time: DateTime.now, msg: params['msg'])
 			# LAST_PIZZA.dump(LAST_PIZZA_FILENAME)
 
-			print request.body.read
+			puts request.body.read
 
 			slim :twiml
 		end
