@@ -28,5 +28,5 @@ PLATFORMS
 
 DEPENDENCIES
   sinatra (~> 1.4.3)
-  slim
+  slim (~> 2.0.0)
   twilio (~> 3.1.1)

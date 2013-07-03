@@ -4,18 +4,18 @@ html
 		title Has Jenn Frank Ordered Pizza?
 		link rel="stylesheet" href="jfop.css"
 	body
-		center
+		div class="container"
 			div class="ordered" = ordered
 
 			- if time then
 			  	div class="when-ordered" 
-			  		- if ordered then
-						| (she ordered it at #{time})
+			  		- if (ordered == "yes") then
+						| (she ordered it at #{time.strftime("%H:%M on %B %d")})
 					- else
-						| (she last ordered pizza at #{time})
+						| (she last ordered pizza at #{time.strftime("%H:%M on %B %d, %Y")})
 			
 			p
 			
-			- if msg && ordered then
+			- if msg && (ordered == "yes") then
 			  	div class="message" 
 					| here's what she said it was: #{msg}
