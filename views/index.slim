@@ -1,0 +1,21 @@
+doctype html
+html
+	head
+		title Has Jenn Frank Ordered Pizza?
+		link rel="stylesheet" href="jfop.css"
+	body
+		center
+			div class="ordered" = ordered
+
+			- if time then
+			  	div class="when-ordered" 
+			  		- if ordered then
+						| (she ordered it at #{time})
+					- else
+						| (she last ordered pizza at #{time})
+			
+			p
+			
+			- if msg && ordered then
+			  	div class="message" 
+					| here's what she said it was: #{msg}

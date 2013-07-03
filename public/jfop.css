@@ -1,0 +1,14 @@
+* {
+	font-family: sans-serif;
+}
+
+.ordered {
+	font-size: 120px;
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+.when-ordered {
+	font-size: 24px;
+	font-style: italic;
+}
