@@ -10,9 +10,9 @@ html
 			- if time then
 			  	div class="when-ordered" 
 			  		- if (ordered == "yes") then
-						| (she ordered it at #{time.strftime("%H:%M on %B %d")})
+						| (she ordered it at #{time.strftime("%H:%M on %B %d (%Z)")})
 					- else
-						| (she last ordered pizza at #{time.strftime("%H:%M on %B %d, %Y")})
+						| (she last ordered pizza at #{time.strftime("%H:%M on %B %d, %Y (%Z)")})
 			
 			p
 			
