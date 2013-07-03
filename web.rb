@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'slim'
+require 'uri'
 
 require './pizzadata'
 
@@ -38,10 +39,14 @@ class JFOP < Sinatra::Base
 		if params['magicword'] != ENV['JFOP_MAGIC_WORD'] then
 			403
 		else
-			# LAST_PIZZA = PizzaData.new(time: DateTime.now, msg: params['msg'])
-			# LAST_PIZZA.dump(LAST_PIZZA_FILENAME)
+			body = request.body.read
+			body_decoded = ::URI.decode_www_form(body)
+			body_args = Hash[body_decoded]
 
-			puts request.body.read
+			LAST_PIZZA = PizzaData.new(time: DateTime.now, msg: body_args["Body"])
+			LAST_PIZZA.dump(LAST_PIZZA_FILENAME)
+
+			# puts request.body.read
 
 			slim :twiml
 		end
